@@ -1,3 +1,5 @@
+
+
 var botao = document.getElementById("botao");
 botao.addEventListener("click", alertar, false);
 var nome = document.getElementById("nome");
@@ -21,19 +23,20 @@ function alertar(event){
  
         fetch(url)
         .then(function (resposta){
-           return resposta.json();
-        })
+                return resposta.json();
+            })
         .then(function (dados){
             logradouro.value = dados.logradouro;
             bairro.value = dados.bairro;
             cidade.value = dados.localidade;
             complemento.value = dados.complemento;
             estado.value = dados.uf;
-
+ 
         })
         .catch(function(e){
             alert(e.message());
         });
+ 
         saida.innerText = "Nome: " + nome.value +
             "\n Email: " + email.value +
             "\n Telefone: " + telefone.value +
@@ -47,3 +50,4 @@ function alertar(event){
  
     }
 }
+ 
