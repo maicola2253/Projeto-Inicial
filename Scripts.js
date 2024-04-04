@@ -18,7 +18,9 @@ var estado = document.getElementById("estado");
 function alertar(event){
     if(true){
         //alert("Você clicou no botão!!!" + " " + nome.value);
- 
+ if(cep.value.length < 8){
+    alert("Entre Com Um CEp Valido")
+ }
         const url = `https://viacep.com.br/ws/${cep.value}/json/`;
  
         fetch(url)
@@ -33,8 +35,8 @@ function alertar(event){
             estado.value = dados.uf;
  
         })
-        .catch(function(e){
-            alert(e.message());
+        .catch(function(error){
+            alert(error.message);
         });
  
         saida.innerText = "Nome: " + nome.value +
@@ -48,6 +50,5 @@ function alertar(event){
             "\n Cidade: " + cidade.value +
             "\n Estado: " + estado.value;
  
-    }
-}
+    }}
  
